@@ -13,3 +13,5 @@ C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\refint\Mini_App.dll
 C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.pdb
 C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.genruntimeconfig.cache
 C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\ref\Mini_App.dll
+C:\Users\Owner\Desktop\Mini_App\Mini_App\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.csproj.CopyComplete

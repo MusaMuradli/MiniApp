@@ -16,20 +16,12 @@ public class Classroom
 
     public Classroom(string name, ClassType type)
     {
-        if (!Helper.IsValidClassroomName(name))
-        {
-            Console.WriteLine("Xeta bash verdi");
-            return;
-        }
+      
         Id = ++_id;
         Name = name;
         Students = new List<Student>();
         Type = type;
-
         MaxLimit = (int)type;
-
-
-
     }
 
     public bool AddStudent(Student student)
