@@ -1,0 +1,15 @@
+C:\Users\Owner\Desktop\Mini_App\Mini_App\bin\Debug\net6.0\Mini_App.exe
+C:\Users\Owner\Desktop\Mini_App\Mini_App\bin\Debug\net6.0\Mini_App.deps.json
+C:\Users\Owner\Desktop\Mini_App\Mini_App\bin\Debug\net6.0\Mini_App.runtimeconfig.json
+C:\Users\Owner\Desktop\Mini_App\Mini_App\bin\Debug\net6.0\Mini_App.dll
+C:\Users\Owner\Desktop\Mini_App\Mini_App\bin\Debug\net6.0\Mini_App.pdb
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.AssemblyInfoInputs.cache
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.AssemblyInfo.cs
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.dll
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\refint\Mini_App.dll
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.pdb
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\Mini_App.genruntimeconfig.cache
+C:\Users\Owner\Desktop\Mini_App\Mini_App\obj\Debug\net6.0\ref\Mini_App.dll
