@@ -1,0 +1,13 @@
+{
+  "Id": 2,
+  "MaxLimit": 15,
+  "Name": "AB222",
+  "Students": [
+    {
+      "Id": 3,
+      "Name": "Isa",
+      "SurName": "Muradli"
+    }
+  ],
+  "Type": 15
+}

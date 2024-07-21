@@ -3,16 +3,54 @@ using Mini_App;
 using Mini_App.Exceptions;
 using Mini_App.Helpers;
 using Mini_App.Helpers.Enums;
+using Newtonsoft.Json;
 
-string studentPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "Jsons", "classrooms.json");
-string result;
-using(StreamReader sr = new StreamReader(studentPath))
-{
-    result = sr.ReadToEnd();
-}
 
-List<Classroom> classrooms = new();
+List<Classroom> classrooms = new List<Classroom>();
 List<Student> students = new List<Student>();
+
+//string studentPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "Jsons", " ");
+//var json = "";
+
+//foreach (var classRoom in classrooms)
+//{
+//    json = JsonConvert.SerializeObject(classRoom);
+//}
+
+//using (StreamWriter sw = new StreamWriter(studentPath + @"clssrooms.json"))
+//{
+//    sw.WriteLine(json);
+//}
+
+
+//string result;
+//using (StreamReader sr = new StreamReader(studentPath + @"clssrooms.json"))
+//{
+//    result = sr.ReadToEnd();
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sinifYaradildi:
 Console.WriteLine("Menu:");
 Console.WriteLine("1. Classroom yarat");
@@ -85,6 +123,24 @@ while (true)
 
                 if (classroom.AddStudent(student))
                 {
+                    string studentPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "Jsons", " ");
+                    var json = "";
+
+                    json = JsonConvert.SerializeObject(classroom);
+
+                    using (StreamWriter sw = new StreamWriter(studentPath + @"clssrooms.json"))
+                    {
+                        sw.WriteLine(json);
+                    }
+
+                    string result;
+                    using (StreamReader sr = new StreamReader(studentPath + @"clssrooms.json"))
+                    {
+                        result = sr.ReadToEnd();
+                    }
+
+                    var response = JsonConvert.DeserializeObject<Classroom>(result);
+
                     Console.WriteLine($"Telebe {className} sinife elave olundu.");
                     goto sinifYaradildi;
                 }
@@ -224,153 +280,3 @@ while (true)
 
 
 
-
-
-
-//static void CreateClassroom(List<Classroom> classrooms)
-//{
-//repeat:
-//    Console.WriteLine("Sinifin adını daxil e:");
-//    var name = Console.ReadLine();
-//    if (!Helper.IsValidClassroomName(name))
-//    {
-//        Console.WriteLine("Xeta bash verdi");
-//        goto repeat;
-//    }
-//classType:
-//    Console.WriteLine("Sinifin növünü seçin (Backend/FrontEnd):");
-//    var typeInput = Console.ReadLine();
-//    if (!Enum.TryParse<ClassType>(typeInput, true, out var type))
-//    {
-//        Console.WriteLine("Yanlış sinif növü.");
-//        goto classType;
-//    }
-
-//    var classroom = new Classroom(name, type);
-//    if (classroom != null)
-//    {
-//        classrooms.Add(classroom);
-//        Console.WriteLine("Sinif yaradıldı.");
-
-//    }
-//}
-
-//static void CreateStudent(List<Student> students, List<Classroom> classrooms)
-//{
-//    Console.WriteLine("Telebenin adını daxil e:");
-//    var name = Console.ReadLine();
-//    Console.WriteLine("Telebenin soyadini daxil e:");
-//    var surName = Console.ReadLine();
-//    Student student = new(name, surName);
-//    if (student == null || student.Id == 0)
-//    {
-//        return;
-//    }
-//    Console.WriteLine("Telebenin daxil edileceyi sinfin adını daxil edin:");
-//    var className = Console.ReadLine();
-//    var classroom = classrooms.Find(c => c.Name == className);
-//    if (classroom == null)
-//    {
-//        throw new StudentNotFoundException($"Sinif '{className}' tapılmadı.");
-//    }
-
-//    if (classroom.AddStudent(student))
-//    {
-//        Console.WriteLine($"Telebe {className}  sinife elave olundu.");
-//    }
-//}
-
-//static void AllStudents(List<Classroom> classrooms)
-//{
-//    Console.WriteLine("Hansi klassdaki studetleri gormek isdeyirsiniz");
-//    foreach (var item in classrooms)
-//    {
-//        Console.WriteLine(item.Name);
-
-//    }
-
-
-
-//    //if (students.Count == 0)
-//    //{
-//    //    Console.WriteLine("Heç bir telebe yoxdur.");
-//    //    return;
-//    //}
-//    //foreach (var student in students)
-//    //{
-//    //    Console.WriteLine($"ID: {student.Id}, Ad: {student.Name}, Soyad: {student.SurName}");
-//    //}
-//}
-
-//static void StudentsInClassroom(List<Classroom> classrooms)
-//{
-
-//    Console.WriteLine("Secim e: 1)Id or 2)Name");
-//    var choice = Console.ReadLine();
-
-//    switch (choice)
-//    {
-//        case "1":
-//            Console.WriteLine("Class Id daxil e:");
-//            int input = int.Parse(Console.ReadLine());
-//            var classroomByid = classrooms.Find(x => x.Id == input);
-//            if (classroomByid == null)
-//            {
-//                Console.WriteLine("Sinif tapilmadi");
-//                return;
-//            }
-//            if (classroomByid.Students.Count == 0)
-//            {
-//                Console.WriteLine("Sinifde student yoxdu");
-//                return;
-//            }
-//            foreach (var student in classroomByid.Students)
-//            {
-//                Console.WriteLine($"ID: {student.Id}, Ad: {student.Name}, Soyad: {student.SurName}");
-//            }
-
-//            break;
-//        case "2":
-//            Console.WriteLine("Class adini daxil e:");
-//            var name = Console.ReadLine();
-//            var classroom = classrooms.Find(x => x.Name == name);
-//            if (classroom == null)
-//            {
-//                Console.WriteLine("Sinif tapilmadi");
-//                return;
-//            }
-//            if (classroom.Students.Count == 0)
-//            {
-//                Console.WriteLine("Sinifde student yoxdu");
-//                return;
-//            }
-//            foreach (var student in classroom.Students)
-//            {
-//                Console.WriteLine($"ID: {student.Id}, Ad: {student.Name}, Soyad: {student.SurName}");
-//            }
-//            break;
-//        default:
-//            break;
-//    }
-
-
-//}
-//static void DeleteStudent(List<Classroom> classrooms)
-//{
-//    Console.WriteLine("Silinecek telebenin ID-ni daxil e:");
-//    if (!int.TryParse(Console.ReadLine(), out int id))
-//    {
-//        Console.WriteLine("Yanlış ID.");
-//        return;
-//    }
-
-//    foreach (var telebe in classrooms)
-//    {
-//        if (telebe.DeleteStudent(id))
-//        {
-//            Console.WriteLine("Telebe silindi.");
-//            return;
-//        }
-//    }
-//    Console.WriteLine("Telebe tapılmadı.");
-//}
