@@ -1,0 +1,36 @@
+[
+  {
+    "Id": 1,
+    "Name": "AB111",
+    "Students": [
+      {
+        "Id": 1,
+        "Name": "Musa",
+        "SurName": "Muradli"
+      }
+    ],
+    "Type": 20,
+    "MaxLimit": 20
+  },
+  {
+    "Id": 2,
+    "Name": "AB222",
+    "Students": [
+      {
+        "Id": 2,
+        "Name": "Gunel",
+        "SurName": "Qahramani"
+      }
+    ],
+    "Type": 20,
+    "MaxLimit": 20
+  },
+  {
+    "Id": 4,
+    "Name": "AB333",
+    "Students": [
+    ],
+    "Type": 20,
+    "MaxLimit": 20
+  }
+]

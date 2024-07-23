@@ -6,8 +6,8 @@ namespace Mini_App;
 
 public class Student
 {
-    private static int _id;
-    public int Id { get; set; }
+    private static int _id = 1;
+    public int Id { get;  private set; }
     public string Name { get; set; }
     public string SurName { get; set; }
 
@@ -18,9 +18,13 @@ public class Student
             Console.WriteLine("Xeta Baş verdi");
             return;
         }
-        Id =++_id;
-        Name=name;
+        Id = _id++;
+        Name =name;
         SurName=surName;
     }
+    //public void SetId(int id)
+    //{
+    //    Id = id;
+    //}
 
 }

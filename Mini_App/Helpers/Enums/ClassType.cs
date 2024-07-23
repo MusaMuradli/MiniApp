@@ -1,7 +1,11 @@
-﻿namespace Mini_App.Helpers.Enums;
+﻿using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+
+namespace Mini_App.Helpers.Enums;
 
 public enum ClassType
 {
-    FrontEnd=15,
+    [JsonConverter(typeof(StringEnumConverter))]
+    FrontEnd =15,
     BackEnd=20
 }

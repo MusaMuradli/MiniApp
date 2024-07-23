@@ -9,45 +9,16 @@ using Newtonsoft.Json;
 List<Classroom> classrooms = new List<Classroom>();
 List<Student> students = new List<Student>();
 
-//string studentPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "Jsons", " ");
-//var json = "";
+string studentPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "Jsons", "classrooms.json");
 
-//foreach (var classRoom in classrooms)
-//{
-//    json = JsonConvert.SerializeObject(classRoom);
-//}
+if (!File.Exists(studentPath))
+{
+Directory.CreateDirectory(Path.GetDirectoryName(studentPath));
+File.WriteAllText(studentPath, JsonConvert.SerializeObject(new List<Classroom>()));
+}
 
-//using (StreamWriter sw = new StreamWriter(studentPath + @"clssrooms.json"))
-//{
-//    sw.WriteLine(json);
-//}
-
-
-//string result;
-//using (StreamReader sr = new StreamReader(studentPath + @"clssrooms.json"))
-//{
-//    result = sr.ReadToEnd();
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+string existingClassroomsJson = File.ReadAllText(studentPath);
+classrooms = JsonConvert.DeserializeObject<List<Classroom>>(existingClassroomsJson) ?? new List<Classroom>();
 
 
 
@@ -94,6 +65,7 @@ while (true)
                 {
                     classrooms.Add(classroom);
                     Console.WriteLine("Sinif yaradıldı.");
+                    File.WriteAllText(studentPath, JsonConvert.SerializeObject(classrooms));
                     goto sinifYaradildi;
                 }
                 break;
@@ -107,7 +79,7 @@ while (true)
                 Student student = new(name, surName);
                 if (student == null || student.Id == 0)
                 {
-                    return;
+                    break;
                 }
                 Console.WriteLine("Telebenin daxil edileceyi sinfin adını daxil edin:");
                 foreach (var item in classrooms)
@@ -123,23 +95,24 @@ while (true)
 
                 if (classroom.AddStudent(student))
                 {
-                    string studentPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "Jsons", " ");
+                    string studentpath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "Jsons", "classrooms.json");
                     var json = "";
 
                     json = JsonConvert.SerializeObject(classroom);
 
-                    using (StreamWriter sw = new StreamWriter(studentPath + @"clssrooms.json"))
+                    using (StreamWriter sw = new StreamWriter(studentpath ))
                     {
                         sw.WriteLine(json);
                     }
 
                     string result;
-                    using (StreamReader sr = new StreamReader(studentPath + @"clssrooms.json"))
+                    using (StreamReader sr = new StreamReader(studentpath ))
                     {
                         result = sr.ReadToEnd();
                     }
 
                     var response = JsonConvert.DeserializeObject<Classroom>(result);
+                    File.WriteAllText(studentPath, JsonConvert.SerializeObject(classrooms));
 
                     Console.WriteLine($"Telebe {className} sinife elave olundu.");
                     goto sinifYaradildi;
